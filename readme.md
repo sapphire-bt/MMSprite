@@ -96,8 +96,8 @@ const frames = sprite.getAllFrames();
     "size"          : 1460,
     "width"         : 33,
     "height"        : 46,
-    "center_x"      : -1,
-    "center_y"      : -2,
+    "centre_x"      : -1,
+    "centre_y"      : -2,
     "name"          : "RALA0001",
     "palette_index" : 0,
     "unknown_t1"    : 1312,
@@ -116,4 +116,6 @@ Returns a single frame object from a given offset within the file. Used by the `
 
 Certain sprite files ostensibly have no colour palette. `timer.spr`, for example, has a palette value of 0. Currently the plugin will generate a greyscale palette when encountering such values.
 
-Inspecting the file in a hex editor, there does seem to be a palette, however in the case of `timer.spr` the total number of pixels appears to be 384 instead of the usual 768 (3 RGB pixels × 16 × 16). Extracting such palettes is yet to be implemented.
+Inspecting the file in a hex editor, there does seem to be a palette, however in the case of `timer.spr` the total number of pixels appears to be 384 instead of the usual 768 (3 RGB pixels × 16 × 16).
+
+Extracting such palettes is yet to be implemented.
