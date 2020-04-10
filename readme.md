@@ -2,7 +2,7 @@
 
 A simple JavaScript plugin to read image data from sprite files used in the video game [Magic & Mayhem](https://en.wikipedia.org/wiki/Magic_and_Mayhem), aka Duel: The Mage Wars.
 
-This is a JavaScript implementation of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
+This is a JavaScript implementation of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). These are included in the folder "Original". With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
 
 ## How to Use
 After including the JavaScript file in a page, pass an [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) of the sprite file to the global `MMSprite` function. A minimal example is shown below:
@@ -116,6 +116,6 @@ Returns a single frame object from a given offset within the file. Used by the `
 
 Certain sprite files ostensibly have no colour palette. `timer.spr`, for example, has a palette value of 0. Currently the plugin will generate a greyscale palette when encountering such values.
 
-Inspecting the file in a hex editor, there does seem to be a palette, however in the case of `timer.spr` the total number of pixels appears to be 384 instead of the usual 768 (3 RGB pixels × 16 × 16).
+Inspecting the file in a hex editor, there does seem to be a palette; however, in the case of `timer.spr`, the total number of pixels appears to be 384 instead of the usual 768 (3 RGB pixels × 16 × 16).
 
 Extracting such palettes is yet to be implemented.
