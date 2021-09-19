@@ -6,6 +6,8 @@ A simple JavaScript plugin to read image data from sprite files used in the vide
 
 This is a JavaScript implementation of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). These are included in the folder "Original". With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
 
+Be sure to check out the [map formats writeup](formats.md) if you're interested in how maps are structured.
+
 ## How to Use
 After including the JavaScript file in a page, pass an [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) of the sprite file to the global `MMSprite` function. A minimal example is shown below:
 
