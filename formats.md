@@ -62,7 +62,7 @@ struct MapTile {
 
 Using the `TerrainIndex` value into the terrain `.ttd` / `.spr` files, it is possible to reconstruct the segments layer by layer:
 
-<img src="https://www.bunnytrack.net/images/github/mm/map-segment.gif" />
+<img src="https://www.bunnytrack.net/images/github/mm/map-segment-1.gif" />
 
 ### Terrain.ttd / Terrain.spr
 A list of tiles which can be used by map segments. Always begins with a 16 byte header:
