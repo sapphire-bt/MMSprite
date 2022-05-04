@@ -22,8 +22,8 @@ struct MapHeader {
 	uint32_t MapSizeY;    // 40
 	uint32_t MapSizeZ;    // 23
 
-	uint32_t MapArea;     // 400  (MapSizeX × MapSizeY)
-	uint32_t MapVolume;   // 9600 (MapSizeX × MapSizeY × MapSizeZ) i.e. total tile count
+	uint32_t MapArea;     // 1600  (MapSizeX × MapSizeY)
+	uint32_t MapVolume;   // 36800 (MapSizeX × MapSizeY × MapSizeZ) i.e. total tile count
 
 	uint32_t SegmentsX;   // 2 (i.e. 2 × 20 tile square segments across)
 	uint32_t SegmentsY;   // 2
