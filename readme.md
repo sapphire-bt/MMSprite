@@ -115,7 +115,3 @@ Renders a sprite's frame object to a Canvas element. Frames are specified by ind
 ## Notes
 
 Certain sprite files ostensibly have no colour palette. `timer.spr`, for example, has a palette value of 0. Currently the plugin will generate a greyscale palette when encountering such values.
-
-Inspecting the file in a hex editor, there does seem to be a palette; however, in the case of `timer.spr` the total number of pixels appears to be 384 instead of the usual 768 (3 RGB pixels × 16 × 16).
-
-Extracting such palettes is yet to be implemented.
