@@ -9,6 +9,42 @@ This is a JavaScript implementation of a C routine posted on the [OpenXcom forum
 Be sure to check out the [map formats writeup](formats.md) if you're interested in how maps are structured.
 
 ## How to Use
+
+### Python
+
+A script is included to dump a sprite to PNG; this requires [pypng](https://pypi.org/project/pypng/):
+
+```shell
+pip install pypng
+```
+
+Then, use `export_image.py` as follows:
+
+```shell
+py export_image.py --input RedCap.spr --dir .
+```
+
+This will export all sprite frames into the current directory.
+
+If you don't care about the pypng dependency and just want to parse a sprite and do something with it:
+
+```py
+from mm_files import SpriteFile
+
+fh = open("RedCap.spr", mode="rb")
+sprite = SpriteFile(fh)
+
+print(sprite.frames[0])
+```
+
+Output:
+
+```
+Frame(offset=2192, size=1460, width=33, height=46, centre_x=-1, centre_y=-2, name='RALA0001', palette_index=0, delta_offsets=[408, 411, 414, 417, 420, 423, 426, 429, 432, 435, 438, 441, 444, 447, 450, 453, 458, 465, 472, 479, 484, 490, 495, 500, 505, 508, 515, 520, 527, 534, 539, 542, 545, 548, 551, 554, 557, 560, 563, 566, 569, 572, 575, 578, 581, 584], pixel_offsets=[587, 591, 598, 607, 617, 628, 641, 654, 667, 681, 697, 715, 734, 752, 770, 791, 810, 828, 848, 868, 887, 908, 934, 956, 983, 1010, 1029, 1048, 1063, 1078, 1092, 1104, 1116, 1129, 1142, 1155, 1170, 1187, 1204, 1221, 1236, 1249, 1262, 1274, 1287, 1300])
+```
+
+### JavaScript
+
 After including the JavaScript file in a page, pass an [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) of the sprite file to the global `MMSprite` function. A minimal example is shown below:
 
 ```html
