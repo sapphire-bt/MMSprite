@@ -2,9 +2,9 @@
 
 <img src="https://www.bunnytrack.net/images/github/mm/sprites.png" />
 
-A simple JavaScript plugin to read image data from sprite files used in the video game [Magic & Mayhem](https://en.wikipedia.org/wiki/Magic_and_Mayhem), aka Duel: The Mage Wars.
+JavaScript and Python plugins to read image data from sprite files used in the video game [Magic & Mayhem](https://en.wikipedia.org/wiki/Magic_and_Mayhem), aka Duel: The Mage Wars.
 
-This is a JavaScript implementation of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). These are included in the folder "Original". With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
+These are ports of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). The original C files are included in the "c" folder. With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
 
 Be sure to check out the [map formats writeup](formats.md) if you're interested in how maps are structured.
 
