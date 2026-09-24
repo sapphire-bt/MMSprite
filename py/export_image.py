@@ -36,10 +36,10 @@ def main(args: argparse.Namespace):
         pad = len(str(sprite.frame_count))
 
         for x, frame in enumerate(sprite.frames):
-            print(f"exporting {base_name} frame {x+1} of {sprite.frame_count}")
+            print(f"exporting {base_name} frame {x + 1} of {sprite.frame_count}")
             pixels = frame.get_pixel_data(fh, palettes=sprite.palettes)
             image = png.from_array(pixels, "RGBA")
-            output_path = os.path.join(output_dir, f"{x+1:>0{pad}}.png")
+            output_path = os.path.join(output_dir, f"{x + 1:>0{pad}}.png")
             image.save(output_path)
 
         fh.close()
@@ -47,7 +47,12 @@ def main(args: argparse.Namespace):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input", required=True, help='file or folder path (e.g. "C:\\sprites\\*.spr")')
+    parser.add_argument(
+        "-i",
+        "--input",
+        required=True,
+        help='file or folder path (e.g. "C:\\sprites\\*.spr")',
+    )
     parser.add_argument("-d", "--dir", required=True, help="output directory")
     args = parser.parse_args()
     main(args)

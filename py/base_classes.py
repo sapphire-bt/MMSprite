@@ -5,7 +5,6 @@ from typing import BinaryIO
 
 from utils import int32, uint8, uint32
 
-
 PALETTE_SIZE = 256
 
 
@@ -43,10 +42,10 @@ class MMFile:
         if reported_size != actual_size:
             raise InvalidFileSize(f"expected {reported_size} but got {actual_size}")
 
-    def parse_header(fh: BinaryIO):
+    def parse_header(self, fh: BinaryIO):
         raise NotImplementedError()
 
-    def parse_data(fh: BinaryIO):
+    def parse_data(self, fh: BinaryIO):
         raise NotImplementedError()
 
 
@@ -78,8 +77,8 @@ class Frame:
         if sprite_version > 2:
             fh.read(8)
 
-        delta_offsets = [None] * height
-        pixel_offsets = [None] * height
+        delta_offsets: list[int] = [0] * height
+        pixel_offsets: list[int] = [0] * height
 
         for x in range(height):
             delta_offsets[x] = uint32(fh)
@@ -95,7 +94,7 @@ class Frame:
             name=name,
             palette_index=palette_index,
             delta_offsets=delta_offsets,
-            pixel_offsets=pixel_offsets
+            pixel_offsets=pixel_offsets,
         )
 
     @property
@@ -106,7 +105,7 @@ class Frame:
         if not self.has_valid_dimensions:
             raise InvalidDimensionsException("width or height is 0")
 
-        pixels = [None] * self.height
+        pixels: list[list[int]] = [[]] * self.height
 
         if self.palette_index < 0 or self.palette_index > len(palettes):
             palette = palettes[0]
@@ -119,7 +118,11 @@ class Frame:
             delta_offset = self.delta_offsets[row]
             pixel_offset = self.pixel_offsets[row]
 
-            delta_start = self.pixel_offsets[0] if (row + 1 == self.height) else self.delta_offsets[row + 1]
+            delta_start = (
+                self.pixel_offsets[0]
+                if (row + 1 == self.height)
+                else self.delta_offsets[row + 1]
+            )
             delta_amt = delta_start - delta_offset
             delta_values = [None] * delta_amt
 
@@ -127,12 +130,15 @@ class Frame:
                 fh.seek(self.offset + delta_offset + x)
                 delta_values[x] = uint8(fh)
 
+            cursor = self.offset + pixel_offset
+
             for x, delta in enumerate(delta_values):
                 is_colour = x & 1
 
                 for y in range(delta):
                     if is_colour:
-                        fh.seek(self.offset + pixel_offset + y)
+                        fh.seek(cursor)
+                        cursor += 1
                         pixel_index = uint8(fh)
                         pixel = palette.pixels[pixel_index]
                     else:

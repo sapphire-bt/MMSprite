@@ -3,11 +3,11 @@ import os
 from typing import BinaryIO
 
 from base_classes import (
+    PALETTE_SIZE,
     Frame,
     GreyscalePalette,
     MMFile,
     Palette,
-    PALETTE_SIZE,
 )
 from utils import uint32
 
@@ -18,7 +18,11 @@ class SpriteFile(MMFile):
 
     @property
     def data_offset(self):
-        return self.header_size + (self.palette_count * PALETTE_SIZE * 3) + (self.frame_count * 4)
+        return (
+            self.header_size
+            + (self.palette_count * PALETTE_SIZE * 3)
+            + (self.frame_count * 4)
+        )
 
     def parse_header(self, fh: BinaryIO):
         fh.seek(8)
