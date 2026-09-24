@@ -1,12 +1,32 @@
 # Magic & Mayhem Sprite Reader
 
-<img src="https://www.bunnytrack.net/images/github/mm/sprites.png" />
-
 JavaScript and Python plugins to read image data from sprite files used in the video game [Magic & Mayhem](https://en.wikipedia.org/wiki/Magic_and_Mayhem), aka Duel: The Mage Wars.
 
 These are ports of a C routine posted on the [OpenXcom forums](https://openxcom.org/forum/index.php/topic,3932.msg125396.html). The original C files are included in the "c" folder. With thanks to user Nikita_Sadkov, the author, for sharing his work and findings.
 
 Be sure to check out the [map formats writeup](formats.md) if you're interested in how maps are structured.
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <img src="https://www.bunnytrack.net/images/github/mm/wizard1_g1_r4.gif" />
+            </td>
+            <td>
+                <img src="https://www.bunnytrack.net/images/github/mm/brownie_g1_r2.gif" />
+            </td>
+            <td>
+                <img src="https://www.bunnytrack.net/images/github/mm/dog_g1_r5.gif" />
+            </td>
+            <td>
+                <img src="https://www.bunnytrack.net/images/github/mm/redcap_g10_r2.gif" />
+            </td>
+            <td>
+                <img src="https://www.bunnytrack.net/images/github/mm/griffin_g23_r4.gif" />
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## How to Use
 
